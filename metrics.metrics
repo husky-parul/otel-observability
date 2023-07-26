@@ -1,0 +1,1079 @@
+2023-07-26T18:17:48.382Z	info	service/telemetry.go:81	Setting up own telemetry...
+2023-07-26T18:17:48.382Z	info	service/telemetry.go:104	Serving Prometheus metrics	{"address": ":8888", "level": "Basic"}
+2023-07-26T18:17:48.382Z	info	exporter@v0.81.0/exporter.go:275	Development component. May change in the future.	{"kind": "exporter", "data_type": "metrics", "name": "logging"}
+2023-07-26T18:17:48.383Z	info	service/service.go:131	Starting otelcol...	{"Version": "0.81.0", "NumCPU": 8}
+2023-07-26T18:17:48.383Z	info	extensions/extensions.go:30	Starting extensions...
+2023-07-26T18:17:48.383Z	info	prometheusreceiver@v0.81.0/metrics_receiver.go:242	Starting discovery manager	{"kind": "receiver", "name": "prometheus", "data_type": "metrics"}
+2023-07-26T18:17:48.383Z	info	prometheusreceiver@v0.81.0/metrics_receiver.go:233	Scrape job added	{"kind": "receiver", "name": "prometheus", "data_type": "metrics", "jobName": "go-app-pod"}
+2023-07-26T18:17:48.383Z	info	service/service.go:148	Everything is ready. Begin running and processing data.
+2023-07-26T18:17:48.383Z	info	prometheusreceiver@v0.81.0/metrics_receiver.go:281	Starting scrape manager	{"kind": "receiver", "name": "prometheus", "data_type": "metrics"}
+2023-07-26T18:18:07.288Z	info	MetricsExporter	{"kind": "exporter", "data_type": "metrics", "name": "logging", "resource metrics": 1, "metrics": 46, "data points": 49}
+2023-07-26T18:18:07.289Z	info	ResourceMetrics #0
+Resource SchemaURL: 
+Resource attributes:
+     -> service.name: Str(go-app-pod)
+     -> net.host.name: Str(go-app-service.otel.svc.cluster.local)
+     -> service.instance.id: Str(go-app-service.otel.svc.cluster.local:8088)
+     -> net.host.port: Str(8088)
+     -> http.scheme: Str(http)
+     -> service_name: Str(unknown_service:main)
+     -> telemetry_sdk_language: Str(go)
+     -> telemetry_sdk_name: Str(opentelemetry)
+     -> telemetry_sdk_version: Str(1.16.0)
+ScopeMetrics #0
+ScopeMetrics SchemaURL: 
+InstrumentationScope otelcol/prometheusreceiver 0.81.0
+Metric #0
+Descriptor:
+     -> Name: process_virtual_memory_max_bytes
+     -> Description: Maximum amount of virtual memory available in bytes.
+     -> Unit: 
+     -> DataType: Gauge
+NumberDataPoints #0
+StartTimestamp: 1970-01-01 00:00:00 +0000 UTC
+Timestamp: 2023-07-26 18:18:07.274 +0000 UTC
+Value: 18446744073709551616.000000
+Metric #1
+Descriptor:
+     -> Name: go_memstats_mcache_inuse_bytes
+     -> Description: Number of bytes in use by mcache structures.
+     -> Unit: 
+     -> DataType: Gauge
+NumberDataPoints #0
+StartTimestamp: 1970-01-01 00:00:00 +0000 UTC
+Timestamp: 2023-07-26 18:18:07.274 +0000 UTC
+Value: 9600.000000
+Metric #2
+Descriptor:
+     -> Name: go_memstats_stack_inuse_bytes
+     -> Description: Number of bytes in use by the stack allocator.
+     -> Unit: 
+     -> DataType: Gauge
+NumberDataPoints #0
+StartTimestamp: 1970-01-01 00:00:00 +0000 UTC
+Timestamp: 2023-07-26 18:18:07.274 +0000 UTC
+Value: 655360.000000
+Metric #3
+Descriptor:
+     -> Name: process_open_fds
+     -> Description: Number of open file descriptors.
+     -> Unit: 
+     -> DataType: Gauge
+NumberDataPoints #0
+StartTimestamp: 1970-01-01 00:00:00 +0000 UTC
+Timestamp: 2023-07-26 18:18:07.274 +0000 UTC
+Value: 8.000000
+Metric #4
+Descriptor:
+     -> Name: go_memstats_heap_sys_bytes
+     -> Description: Number of heap bytes obtained from system.
+     -> Unit: 
+     -> DataType: Gauge
+NumberDataPoints #0
+StartTimestamp: 1970-01-01 00:00:00 +0000 UTC
+Timestamp: 2023-07-26 18:18:07.274 +0000 UTC
+Value: 11927552.000000
+Metric #5
+Descriptor:
+     -> Name: go_memstats_next_gc_bytes
+     -> Description: Number of heap bytes when next garbage collection will take place.
+     -> Unit: 
+     -> DataType: Gauge
+NumberDataPoints #0
+StartTimestamp: 1970-01-01 00:00:00 +0000 UTC
+Timestamp: 2023-07-26 18:18:07.274 +0000 UTC
+Value: 4550424.000000
+Metric #6
+Descriptor:
+     -> Name: go_threads
+     -> Description: Number of OS threads created.
+     -> Unit: 
+     -> DataType: Gauge
+NumberDataPoints #0
+StartTimestamp: 1970-01-01 00:00:00 +0000 UTC
+Timestamp: 2023-07-26 18:18:07.274 +0000 UTC
+Value: 10.000000
+Metric #7
+Descriptor:
+     -> Name: scrape_duration_seconds
+     -> Description: Duration of the scrape
+     -> Unit: seconds
+     -> DataType: Gauge
+NumberDataPoints #0
+StartTimestamp: 1970-01-01 00:00:00 +0000 UTC
+Timestamp: 2023-07-26 18:18:07.274 +0000 UTC
+Value: 0.013833
+Metric #8
+Descriptor:
+     -> Name: go_memstats_alloc_bytes
+     -> Description: Number of bytes allocated and still in use.
+     -> Unit: 
+     -> DataType: Gauge
+NumberDataPoints #0
+StartTimestamp: 1970-01-01 00:00:00 +0000 UTC
+Timestamp: 2023-07-26 18:18:07.274 +0000 UTC
+Value: 2294696.000000
+Metric #9
+Descriptor:
+     -> Name: go_memstats_alloc_bytes_total
+     -> Description: Total number of bytes allocated, even if freed.
+     -> Unit: 
+     -> DataType: Sum
+     -> IsMonotonic: true
+     -> AggregationTemporality: Cumulative
+NumberDataPoints #0
+StartTimestamp: 2023-07-26 18:18:07.274 +0000 UTC
+Timestamp: 2023-07-26 18:18:07.274 +0000 UTC
+Value: 16606984.000000
+Metric #10
+Descriptor:
+     -> Name: go_memstats_heap_idle_bytes
+     -> Description: Number of heap bytes waiting to be used.
+     -> Unit: 
+     -> DataType: Gauge
+NumberDataPoints #0
+StartTimestamp: 1970-01-01 00:00:00 +0000 UTC
+Timestamp: 2023-07-26 18:18:07.274 +0000 UTC
+Value: 8208384.000000
+Metric #11
+Descriptor:
+     -> Name: process_virtual_memory_bytes
+     -> Description: Virtual memory size in bytes.
+     -> Unit: 
+     -> DataType: Gauge
+NumberDataPoints #0
+StartTimestamp: 1970-01-01 00:00:00 +0000 UTC
+Timestamp: 2023-07-26 18:18:07.274 +0000 UTC
+Value: 737968128.000000
+Metric #12
+Descriptor:
+     -> Name: test_my_counter_total
+     -> Description: Just a test counter
+     -> Unit: 
+     -> DataType: Sum
+     -> IsMonotonic: true
+     -> AggregationTemporality: Cumulative
+NumberDataPoints #0
+Data point attributes:
+     -> otel_scope_name: Str(example)
+StartTimestamp: 2023-07-26 18:18:07.274 +0000 UTC
+Timestamp: 2023-07-26 18:18:07.274 +0000 UTC
+Value: 3206.000000
+Metric #13
+Descriptor:
+     -> Name: scrape_samples_post_metric_relabeling
+     -> Description: The number of samples remaining after metric relabeling was applied
+     -> Unit: 
+     -> DataType: Gauge
+NumberDataPoints #0
+StartTimestamp: 1970-01-01 00:00:00 +0000 UTC
+Timestamp: 2023-07-26 18:18:07.274 +0000 UTC
+Value: 51.000000
+Metric #14
+Descriptor:
+     -> Name: go_memstats_heap_released_bytes
+     -> Description: Number of heap bytes released to OS.
+     -> Unit: 
+     -> DataType: Gauge
+NumberDataPoints #0
+StartTimestamp: 1970-01-01 00:00:00 +0000 UTC
+Timestamp: 2023-07-26 18:18:07.274 +0000 UTC
+Value: 6602752.000000
+Metric #15
+Descriptor:
+     -> Name: go_memstats_last_gc_time_seconds
+     -> Description: Number of seconds since 1970 of last garbage collection.
+     -> Unit: 
+     -> DataType: Gauge
+NumberDataPoints #0
+StartTimestamp: 1970-01-01 00:00:00 +0000 UTC
+Timestamp: 2023-07-26 18:18:07.274 +0000 UTC
+Value: 1690395428.311812
+Metric #16
+Descriptor:
+     -> Name: process_cpu_seconds_total
+     -> Description: Total user and system CPU time spent in seconds.
+     -> Unit: 
+     -> DataType: Sum
+     -> IsMonotonic: true
+     -> AggregationTemporality: Cumulative
+NumberDataPoints #0
+StartTimestamp: 2023-07-26 18:18:07.274 +0000 UTC
+Timestamp: 2023-07-26 18:18:07.274 +0000 UTC
+Value: 0.780000
+Metric #17
+Descriptor:
+     -> Name: go_memstats_mspan_inuse_bytes
+     -> Description: Number of bytes in use by mspan structures.
+     -> Unit: 
+     -> DataType: Gauge
+NumberDataPoints #0
+StartTimestamp: 1970-01-01 00:00:00 +0000 UTC
+Timestamp: 2023-07-26 18:18:07.274 +0000 UTC
+Value: 116320.000000
+Metric #18
+Descriptor:
+     -> Name: go_memstats_mspan_sys_bytes
+     -> Description: Number of bytes used for mspan structures obtained from system.
+     -> Unit: 
+     -> DataType: Gauge
+NumberDataPoints #0
+StartTimestamp: 1970-01-01 00:00:00 +0000 UTC
+Timestamp: 2023-07-26 18:18:07.274 +0000 UTC
+Value: 130560.000000
+Metric #19
+Descriptor:
+     -> Name: process_runtime_go_cgo_calls
+     -> Description: Number of cgo calls made by the current process
+     -> Unit: 
+     -> DataType: Gauge
+NumberDataPoints #0
+Data point attributes:
+     -> otel_scope_name: Str(go.opentelemetry.io/contrib/instrumentation/runtime)
+     -> otel_scope_version: Str(0.42.0)
+StartTimestamp: 1970-01-01 00:00:00 +0000 UTC
+Timestamp: 2023-07-26 18:18:07.274 +0000 UTC
+Value: 0.000000
+Metric #20
+Descriptor:
+     -> Name: process_start_time_seconds
+     -> Description: Start time of the process since unix epoch in seconds.
+     -> Unit: 
+     -> DataType: Gauge
+NumberDataPoints #0
+StartTimestamp: 1970-01-01 00:00:00 +0000 UTC
+Timestamp: 2023-07-26 18:18:07.274 +0000 UTC
+Value: 1690393891.580000
+Metric #21
+Descriptor:
+     -> Name: runtime_uptime_milliseconds_total
+     -> Description: Milliseconds since application was initialized
+     -> Unit: 
+     -> DataType: Sum
+     -> IsMonotonic: true
+     -> AggregationTemporality: Cumulative
+NumberDataPoints #0
+Data point attributes:
+     -> otel_scope_name: Str(go.opentelemetry.io/contrib/instrumentation/runtime)
+     -> otel_scope_version: Str(0.42.0)
+StartTimestamp: 2023-07-26 18:18:07.274 +0000 UTC
+Timestamp: 2023-07-26 18:18:07.274 +0000 UTC
+Value: 1595508.000000
+Metric #22
+Descriptor:
+     -> Name: go_goroutines
+     -> Description: Number of goroutines that currently exist.
+     -> Unit: 
+     -> DataType: Gauge
+NumberDataPoints #0
+StartTimestamp: 1970-01-01 00:00:00 +0000 UTC
+Timestamp: 2023-07-26 18:18:07.274 +0000 UTC
+Value: 8.000000
+Metric #23
+Descriptor:
+     -> Name: go_memstats_frees_total
+     -> Description: Total number of frees.
+     -> Unit: 
+     -> DataType: Sum
+     -> IsMonotonic: true
+     -> AggregationTemporality: Cumulative
+NumberDataPoints #0
+StartTimestamp: 2023-07-26 18:18:07.274 +0000 UTC
+Timestamp: 2023-07-26 18:18:07.274 +0000 UTC
+Value: 29008.000000
+Metric #24
+Descriptor:
+     -> Name: go_memstats_heap_objects
+     -> Description: Number of allocated objects.
+     -> Unit: 
+     -> DataType: Gauge
+NumberDataPoints #0
+StartTimestamp: 1970-01-01 00:00:00 +0000 UTC
+Timestamp: 2023-07-26 18:18:07.274 +0000 UTC
+Value: 2143.000000
+Metric #25
+Descriptor:
+     -> Name: process_resident_memory_bytes
+     -> Description: Resident memory size in bytes.
+     -> Unit: 
+     -> DataType: Gauge
+NumberDataPoints #0
+StartTimestamp: 1970-01-01 00:00:00 +0000 UTC
+Timestamp: 2023-07-26 18:18:07.274 +0000 UTC
+Value: 14225408.000000
+Metric #26
+Descriptor:
+     -> Name: up
+     -> Description: The scraping was successful
+     -> Unit: 
+     -> DataType: Gauge
+NumberDataPoints #0
+StartTimestamp: 1970-01-01 00:00:00 +0000 UTC
+Timestamp: 2023-07-26 18:18:07.274 +0000 UTC
+Value: 1.000000
+Metric #27
+Descriptor:
+     -> Name: go_memstats_gc_sys_bytes
+     -> Description: Number of bytes used for garbage collection system metadata.
+     -> Unit: 
+     -> DataType: Gauge
+NumberDataPoints #0
+StartTimestamp: 1970-01-01 00:00:00 +0000 UTC
+Timestamp: 2023-07-26 18:18:07.274 +0000 UTC
+Value: 7818496.000000
+Metric #28
+Descriptor:
+     -> Name: go_memstats_heap_inuse_bytes
+     -> Description: Number of heap bytes that are in use.
+     -> Unit: 
+     -> DataType: Gauge
+NumberDataPoints #0
+StartTimestamp: 1970-01-01 00:00:00 +0000 UTC
+Timestamp: 2023-07-26 18:18:07.274 +0000 UTC
+Value: 3719168.000000
+Metric #29
+Descriptor:
+     -> Name: go_memstats_mallocs_total
+     -> Description: Total number of mallocs.
+     -> Unit: 
+     -> DataType: Sum
+     -> IsMonotonic: true
+     -> AggregationTemporality: Cumulative
+NumberDataPoints #0
+StartTimestamp: 2023-07-26 18:18:07.274 +0000 UTC
+Timestamp: 2023-07-26 18:18:07.274 +0000 UTC
+Value: 31151.000000
+Metric #30
+Descriptor:
+     -> Name: go_memstats_lookups_total
+     -> Description: Total number of pointer lookups.
+     -> Unit: 
+     -> DataType: Sum
+     -> IsMonotonic: true
+     -> AggregationTemporality: Cumulative
+NumberDataPoints #0
+StartTimestamp: 2023-07-26 18:18:07.274 +0000 UTC
+Timestamp: 2023-07-26 18:18:07.274 +0000 UTC
+Value: 0.000000
+Metric #31
+Descriptor:
+     -> Name: go_memstats_stack_sys_bytes
+     -> Description: Number of bytes obtained from system for stack allocator.
+     -> Unit: 
+     -> DataType: Gauge
+NumberDataPoints #0
+StartTimestamp: 1970-01-01 00:00:00 +0000 UTC
+Timestamp: 2023-07-26 18:18:07.274 +0000 UTC
+Value: 655360.000000
+Metric #32
+Descriptor:
+     -> Name: process_max_fds
+     -> Description: Maximum number of open file descriptors.
+     -> Unit: 
+     -> DataType: Gauge
+NumberDataPoints #0
+StartTimestamp: 1970-01-01 00:00:00 +0000 UTC
+Timestamp: 2023-07-26 18:18:07.274 +0000 UTC
+Value: 1073741816.000000
+Metric #33
+Descriptor:
+     -> Name: scrape_samples_scraped
+     -> Description: The number of samples the target exposed
+     -> Unit: 
+     -> DataType: Gauge
+NumberDataPoints #0
+StartTimestamp: 1970-01-01 00:00:00 +0000 UTC
+Timestamp: 2023-07-26 18:18:07.274 +0000 UTC
+Value: 51.000000
+Metric #34
+Descriptor:
+     -> Name: go_info
+     -> Description: Information about the Go environment.
+     -> Unit: 
+     -> DataType: Gauge
+NumberDataPoints #0
+Data point attributes:
+     -> version: Str(go1.20.6)
+StartTimestamp: 1970-01-01 00:00:00 +0000 UTC
+Timestamp: 2023-07-26 18:18:07.274 +0000 UTC
+Value: 1.000000
+Metric #35
+Descriptor:
+     -> Name: go_memstats_heap_alloc_bytes
+     -> Description: Number of heap bytes allocated and still in use.
+     -> Unit: 
+     -> DataType: Gauge
+NumberDataPoints #0
+StartTimestamp: 1970-01-01 00:00:00 +0000 UTC
+Timestamp: 2023-07-26 18:18:07.274 +0000 UTC
+Value: 2294696.000000
+Metric #36
+Descriptor:
+     -> Name: otel_scope_info
+     -> Description: Instrumentation Scope metadata
+     -> Unit: 
+     -> DataType: Gauge
+NumberDataPoints #0
+Data point attributes:
+     -> otel_scope_name: Str(example)
+StartTimestamp: 1970-01-01 00:00:00 +0000 UTC
+Timestamp: 2023-07-26 18:18:07.274 +0000 UTC
+Value: 1.000000
+NumberDataPoints #1
+Data point attributes:
+     -> otel_scope_name: Str(go.opentelemetry.io/contrib/instrumentation/runtime)
+     -> otel_scope_version: Str(0.42.0)
+StartTimestamp: 1970-01-01 00:00:00 +0000 UTC
+Timestamp: 2023-07-26 18:18:07.274 +0000 UTC
+Value: 1.000000
+Metric #37
+Descriptor:
+     -> Name: go_memstats_other_sys_bytes
+     -> Description: Number of bytes used for other system allocations.
+     -> Unit: 
+     -> DataType: Gauge
+NumberDataPoints #0
+StartTimestamp: 1970-01-01 00:00:00 +0000 UTC
+Timestamp: 2023-07-26 18:18:07.274 +0000 UTC
+Value: 1991366.000000
+Metric #38
+Descriptor:
+     -> Name: go_memstats_sys_bytes
+     -> Description: Number of bytes obtained from system.
+     -> Unit: 
+     -> DataType: Gauge
+NumberDataPoints #0
+StartTimestamp: 1970-01-01 00:00:00 +0000 UTC
+Timestamp: 2023-07-26 18:18:07.274 +0000 UTC
+Value: 22543376.000000
+Metric #39
+Descriptor:
+     -> Name: process_runtime_go_goroutines
+     -> Description: Number of goroutines that currently exist
+     -> Unit: 
+     -> DataType: Gauge
+NumberDataPoints #0
+Data point attributes:
+     -> otel_scope_name: Str(go.opentelemetry.io/contrib/instrumentation/runtime)
+     -> otel_scope_version: Str(0.42.0)
+StartTimestamp: 1970-01-01 00:00:00 +0000 UTC
+Timestamp: 2023-07-26 18:18:07.274 +0000 UTC
+Value: 8.000000
+Metric #40
+Descriptor:
+     -> Name: promhttp_metric_handler_requests_in_flight
+     -> Description: Current number of scrapes being served.
+     -> Unit: 
+     -> DataType: Gauge
+NumberDataPoints #0
+StartTimestamp: 1970-01-01 00:00:00 +0000 UTC
+Timestamp: 2023-07-26 18:18:07.274 +0000 UTC
+Value: 1.000000
+Metric #41
+Descriptor:
+     -> Name: promhttp_metric_handler_requests_total
+     -> Description: Total number of scrapes by HTTP status code.
+     -> Unit: 
+     -> DataType: Sum
+     -> IsMonotonic: true
+     -> AggregationTemporality: Cumulative
+NumberDataPoints #0
+Data point attributes:
+     -> code: Str(200)
+StartTimestamp: 2023-07-26 18:18:07.274 +0000 UTC
+Timestamp: 2023-07-26 18:18:07.274 +0000 UTC
+Value: 23.000000
+NumberDataPoints #1
+Data point attributes:
+     -> code: Str(500)
+StartTimestamp: 2023-07-26 18:18:07.274 +0000 UTC
+Timestamp: 2023-07-26 18:18:07.274 +0000 UTC
+Value: 0.000000
+NumberDataPoints #2
+Data point attributes:
+     -> code: Str(503)
+StartTimestamp: 2023-07-26 18:18:07.274 +0000 UTC
+Timestamp: 2023-07-26 18:18:07.274 +0000 UTC
+Value: 0.000000
+Metric #42
+Descriptor:
+     -> Name: go_gc_duration_seconds
+     -> Description: A summary of the pause duration of garbage collection cycles.
+     -> Unit: 
+     -> DataType: Summary
+SummaryDataPoints #0
+StartTimestamp: 2023-07-26 18:18:07.274 +0000 UTC
+Timestamp: 2023-07-26 18:18:07.274 +0000 UTC
+Count: 12
+Sum: 0.001308
+QuantileValue #0: Quantile 0.000000, Value 0.000032
+QuantileValue #1: Quantile 0.250000, Value 0.000068
+QuantileValue #2: Quantile 0.500000, Value 0.000082
+QuantileValue #3: Quantile 0.750000, Value 0.000144
+QuantileValue #4: Quantile 1.000000, Value 0.000297
+Metric #43
+Descriptor:
+     -> Name: go_memstats_buck_hash_sys_bytes
+     -> Description: Number of bytes used by the profiling bucket hash table.
+     -> Unit: 
+     -> DataType: Gauge
+NumberDataPoints #0
+StartTimestamp: 1970-01-01 00:00:00 +0000 UTC
+Timestamp: 2023-07-26 18:18:07.274 +0000 UTC
+Value: 4442.000000
+Metric #44
+Descriptor:
+     -> Name: go_memstats_mcache_sys_bytes
+     -> Description: Number of bytes used for mcache structures obtained from system.
+     -> Unit: 
+     -> DataType: Gauge
+NumberDataPoints #0
+StartTimestamp: 1970-01-01 00:00:00 +0000 UTC
+Timestamp: 2023-07-26 18:18:07.274 +0000 UTC
+Value: 15600.000000
+Metric #45
+Descriptor:
+     -> Name: scrape_series_added
+     -> Description: The approximate number of new series in this scrape
+     -> Unit: 
+     -> DataType: Gauge
+NumberDataPoints #0
+StartTimestamp: 1970-01-01 00:00:00 +0000 UTC
+Timestamp: 2023-07-26 18:18:07.274 +0000 UTC
+Value: 51.000000
+	{"kind": "exporter", "data_type": "metrics", "name": "logging"}
+2023-07-26T18:19:07.286Z	info	MetricsExporter	{"kind": "exporter", "data_type": "metrics", "name": "logging", "resource metrics": 1, "metrics": 46, "data points": 49}
+2023-07-26T18:19:07.287Z	info	ResourceMetrics #0
+Resource SchemaURL: 
+Resource attributes:
+     -> service.name: Str(go-app-pod)
+     -> net.host.name: Str(go-app-service.otel.svc.cluster.local)
+     -> service.instance.id: Str(go-app-service.otel.svc.cluster.local:8088)
+     -> net.host.port: Str(8088)
+     -> http.scheme: Str(http)
+     -> service_name: Str(unknown_service:main)
+     -> telemetry_sdk_language: Str(go)
+     -> telemetry_sdk_name: Str(opentelemetry)
+     -> telemetry_sdk_version: Str(1.16.0)
+ScopeMetrics #0
+ScopeMetrics SchemaURL: 
+InstrumentationScope otelcol/prometheusreceiver 0.81.0
+Metric #0
+Descriptor:
+     -> Name: go_memstats_mspan_inuse_bytes
+     -> Description: Number of bytes in use by mspan structures.
+     -> Unit: 
+     -> DataType: Gauge
+NumberDataPoints #0
+StartTimestamp: 1970-01-01 00:00:00 +0000 UTC
+Timestamp: 2023-07-26 18:19:07.277 +0000 UTC
+Value: 116320.000000
+Metric #1
+Descriptor:
+     -> Name: go_threads
+     -> Description: Number of OS threads created.
+     -> Unit: 
+     -> DataType: Gauge
+NumberDataPoints #0
+StartTimestamp: 1970-01-01 00:00:00 +0000 UTC
+Timestamp: 2023-07-26 18:19:07.277 +0000 UTC
+Value: 10.000000
+Metric #2
+Descriptor:
+     -> Name: otel_scope_info
+     -> Description: Instrumentation Scope metadata
+     -> Unit: 
+     -> DataType: Gauge
+NumberDataPoints #0
+Data point attributes:
+     -> otel_scope_name: Str(example)
+StartTimestamp: 1970-01-01 00:00:00 +0000 UTC
+Timestamp: 2023-07-26 18:19:07.277 +0000 UTC
+Value: 1.000000
+NumberDataPoints #1
+Data point attributes:
+     -> otel_scope_name: Str(go.opentelemetry.io/contrib/instrumentation/runtime)
+     -> otel_scope_version: Str(0.42.0)
+StartTimestamp: 1970-01-01 00:00:00 +0000 UTC
+Timestamp: 2023-07-26 18:19:07.277 +0000 UTC
+Value: 1.000000
+Metric #3
+Descriptor:
+     -> Name: promhttp_metric_handler_requests_in_flight
+     -> Description: Current number of scrapes being served.
+     -> Unit: 
+     -> DataType: Gauge
+NumberDataPoints #0
+StartTimestamp: 1970-01-01 00:00:00 +0000 UTC
+Timestamp: 2023-07-26 18:19:07.277 +0000 UTC
+Value: 1.000000
+Metric #4
+Descriptor:
+     -> Name: go_memstats_buck_hash_sys_bytes
+     -> Description: Number of bytes used by the profiling bucket hash table.
+     -> Unit: 
+     -> DataType: Gauge
+NumberDataPoints #0
+StartTimestamp: 1970-01-01 00:00:00 +0000 UTC
+Timestamp: 2023-07-26 18:19:07.277 +0000 UTC
+Value: 4442.000000
+Metric #5
+Descriptor:
+     -> Name: go_memstats_heap_objects
+     -> Description: Number of allocated objects.
+     -> Unit: 
+     -> DataType: Gauge
+NumberDataPoints #0
+StartTimestamp: 1970-01-01 00:00:00 +0000 UTC
+Timestamp: 2023-07-26 18:19:07.277 +0000 UTC
+Value: 2212.000000
+Metric #6
+Descriptor:
+     -> Name: go_memstats_mallocs_total
+     -> Description: Total number of mallocs.
+     -> Unit: 
+     -> DataType: Sum
+     -> IsMonotonic: true
+     -> AggregationTemporality: Cumulative
+NumberDataPoints #0
+StartTimestamp: 2023-07-26 18:18:07.274 +0000 UTC
+Timestamp: 2023-07-26 18:19:07.277 +0000 UTC
+Value: 31220.000000
+Metric #7
+Descriptor:
+     -> Name: process_resident_memory_bytes
+     -> Description: Resident memory size in bytes.
+     -> Unit: 
+     -> DataType: Gauge
+NumberDataPoints #0
+StartTimestamp: 1970-01-01 00:00:00 +0000 UTC
+Timestamp: 2023-07-26 18:19:07.277 +0000 UTC
+Value: 14225408.000000
+Metric #8
+Descriptor:
+     -> Name: test_my_counter_total
+     -> Description: Just a test counter
+     -> Unit: 
+     -> DataType: Sum
+     -> IsMonotonic: true
+     -> AggregationTemporality: Cumulative
+NumberDataPoints #0
+Data point attributes:
+     -> otel_scope_name: Str(example)
+StartTimestamp: 2023-07-26 18:18:07.274 +0000 UTC
+Timestamp: 2023-07-26 18:19:07.277 +0000 UTC
+Value: 3319.000000
+Metric #9
+Descriptor:
+     -> Name: up
+     -> Description: The scraping was successful
+     -> Unit: 
+     -> DataType: Gauge
+NumberDataPoints #0
+StartTimestamp: 1970-01-01 00:00:00 +0000 UTC
+Timestamp: 2023-07-26 18:19:07.277 +0000 UTC
+Value: 1.000000
+Metric #10
+Descriptor:
+     -> Name: scrape_samples_scraped
+     -> Description: The number of samples the target exposed
+     -> Unit: 
+     -> DataType: Gauge
+NumberDataPoints #0
+StartTimestamp: 1970-01-01 00:00:00 +0000 UTC
+Timestamp: 2023-07-26 18:19:07.277 +0000 UTC
+Value: 51.000000
+Metric #11
+Descriptor:
+     -> Name: go_memstats_next_gc_bytes
+     -> Description: Number of heap bytes when next garbage collection will take place.
+     -> Unit: 
+     -> DataType: Gauge
+NumberDataPoints #0
+StartTimestamp: 1970-01-01 00:00:00 +0000 UTC
+Timestamp: 2023-07-26 18:19:07.277 +0000 UTC
+Value: 4550424.000000
+Metric #12
+Descriptor:
+     -> Name: process_max_fds
+     -> Description: Maximum number of open file descriptors.
+     -> Unit: 
+     -> DataType: Gauge
+NumberDataPoints #0
+StartTimestamp: 1970-01-01 00:00:00 +0000 UTC
+Timestamp: 2023-07-26 18:19:07.277 +0000 UTC
+Value: 1073741816.000000
+Metric #13
+Descriptor:
+     -> Name: process_virtual_memory_bytes
+     -> Description: Virtual memory size in bytes.
+     -> Unit: 
+     -> DataType: Gauge
+NumberDataPoints #0
+StartTimestamp: 1970-01-01 00:00:00 +0000 UTC
+Timestamp: 2023-07-26 18:19:07.277 +0000 UTC
+Value: 737968128.000000
+Metric #14
+Descriptor:
+     -> Name: runtime_uptime_milliseconds_total
+     -> Description: Milliseconds since application was initialized
+     -> Unit: 
+     -> DataType: Sum
+     -> IsMonotonic: true
+     -> AggregationTemporality: Cumulative
+NumberDataPoints #0
+Data point attributes:
+     -> otel_scope_name: Str(go.opentelemetry.io/contrib/instrumentation/runtime)
+     -> otel_scope_version: Str(0.42.0)
+StartTimestamp: 2023-07-26 18:18:07.274 +0000 UTC
+Timestamp: 2023-07-26 18:19:07.277 +0000 UTC
+Value: 1655502.000000
+Metric #15
+Descriptor:
+     -> Name: scrape_duration_seconds
+     -> Description: Duration of the scrape
+     -> Unit: seconds
+     -> DataType: Gauge
+NumberDataPoints #0
+StartTimestamp: 1970-01-01 00:00:00 +0000 UTC
+Timestamp: 2023-07-26 18:19:07.277 +0000 UTC
+Value: 0.008541
+Metric #16
+Descriptor:
+     -> Name: go_info
+     -> Description: Information about the Go environment.
+     -> Unit: 
+     -> DataType: Gauge
+NumberDataPoints #0
+Data point attributes:
+     -> version: Str(go1.20.6)
+StartTimestamp: 1970-01-01 00:00:00 +0000 UTC
+Timestamp: 2023-07-26 18:19:07.277 +0000 UTC
+Value: 1.000000
+Metric #17
+Descriptor:
+     -> Name: go_memstats_alloc_bytes
+     -> Description: Number of bytes allocated and still in use.
+     -> Unit: 
+     -> DataType: Gauge
+NumberDataPoints #0
+StartTimestamp: 1970-01-01 00:00:00 +0000 UTC
+Timestamp: 2023-07-26 18:19:07.277 +0000 UTC
+Value: 3177960.000000
+Metric #18
+Descriptor:
+     -> Name: go_memstats_heap_idle_bytes
+     -> Description: Number of heap bytes waiting to be used.
+     -> Unit: 
+     -> DataType: Gauge
+NumberDataPoints #0
+StartTimestamp: 1970-01-01 00:00:00 +0000 UTC
+Timestamp: 2023-07-26 18:19:07.277 +0000 UTC
+Value: 7053312.000000
+Metric #19
+Descriptor:
+     -> Name: go_memstats_mcache_sys_bytes
+     -> Description: Number of bytes used for mcache structures obtained from system.
+     -> Unit: 
+     -> DataType: Gauge
+NumberDataPoints #0
+StartTimestamp: 1970-01-01 00:00:00 +0000 UTC
+Timestamp: 2023-07-26 18:19:07.277 +0000 UTC
+Value: 15600.000000
+Metric #20
+Descriptor:
+     -> Name: go_memstats_stack_sys_bytes
+     -> Description: Number of bytes obtained from system for stack allocator.
+     -> Unit: 
+     -> DataType: Gauge
+NumberDataPoints #0
+StartTimestamp: 1970-01-01 00:00:00 +0000 UTC
+Timestamp: 2023-07-26 18:19:07.277 +0000 UTC
+Value: 720896.000000
+Metric #21
+Descriptor:
+     -> Name: process_cpu_seconds_total
+     -> Description: Total user and system CPU time spent in seconds.
+     -> Unit: 
+     -> DataType: Sum
+     -> IsMonotonic: true
+     -> AggregationTemporality: Cumulative
+NumberDataPoints #0
+StartTimestamp: 2023-07-26 18:18:07.274 +0000 UTC
+Timestamp: 2023-07-26 18:19:07.277 +0000 UTC
+Value: 0.810000
+Metric #22
+Descriptor:
+     -> Name: go_gc_duration_seconds
+     -> Description: A summary of the pause duration of garbage collection cycles.
+     -> Unit: 
+     -> DataType: Summary
+SummaryDataPoints #0
+StartTimestamp: 2023-07-26 18:18:07.274 +0000 UTC
+Timestamp: 2023-07-26 18:19:07.277 +0000 UTC
+Count: 12
+Sum: 0.001308
+QuantileValue #0: Quantile 0.000000, Value 0.000032
+QuantileValue #1: Quantile 0.250000, Value 0.000068
+QuantileValue #2: Quantile 0.500000, Value 0.000082
+QuantileValue #3: Quantile 0.750000, Value 0.000144
+QuantileValue #4: Quantile 1.000000, Value 0.000297
+Metric #23
+Descriptor:
+     -> Name: promhttp_metric_handler_requests_total
+     -> Description: Total number of scrapes by HTTP status code.
+     -> Unit: 
+     -> DataType: Sum
+     -> IsMonotonic: true
+     -> AggregationTemporality: Cumulative
+NumberDataPoints #0
+Data point attributes:
+     -> code: Str(200)
+StartTimestamp: 2023-07-26 18:18:07.274 +0000 UTC
+Timestamp: 2023-07-26 18:19:07.277 +0000 UTC
+Value: 24.000000
+NumberDataPoints #1
+Data point attributes:
+     -> code: Str(500)
+StartTimestamp: 2023-07-26 18:18:07.274 +0000 UTC
+Timestamp: 2023-07-26 18:19:07.277 +0000 UTC
+Value: 0.000000
+NumberDataPoints #2
+Data point attributes:
+     -> code: Str(503)
+StartTimestamp: 2023-07-26 18:18:07.274 +0000 UTC
+Timestamp: 2023-07-26 18:19:07.277 +0000 UTC
+Value: 0.000000
+Metric #24
+Descriptor:
+     -> Name: scrape_series_added
+     -> Description: The approximate number of new series in this scrape
+     -> Unit: 
+     -> DataType: Gauge
+NumberDataPoints #0
+StartTimestamp: 1970-01-01 00:00:00 +0000 UTC
+Timestamp: 2023-07-26 18:19:07.277 +0000 UTC
+Value: 51.000000
+Metric #25
+Descriptor:
+     -> Name: go_memstats_heap_alloc_bytes
+     -> Description: Number of heap bytes allocated and still in use.
+     -> Unit: 
+     -> DataType: Gauge
+NumberDataPoints #0
+StartTimestamp: 1970-01-01 00:00:00 +0000 UTC
+Timestamp: 2023-07-26 18:19:07.277 +0000 UTC
+Value: 3177960.000000
+Metric #26
+Descriptor:
+     -> Name: go_memstats_last_gc_time_seconds
+     -> Description: Number of seconds since 1970 of last garbage collection.
+     -> Unit: 
+     -> DataType: Gauge
+NumberDataPoints #0
+StartTimestamp: 1970-01-01 00:00:00 +0000 UTC
+Timestamp: 2023-07-26 18:19:07.277 +0000 UTC
+Value: 1690395428.311812
+Metric #27
+Descriptor:
+     -> Name: go_memstats_lookups_total
+     -> Description: Total number of pointer lookups.
+     -> Unit: 
+     -> DataType: Sum
+     -> IsMonotonic: true
+     -> AggregationTemporality: Cumulative
+NumberDataPoints #0
+StartTimestamp: 2023-07-26 18:18:07.274 +0000 UTC
+Timestamp: 2023-07-26 18:19:07.277 +0000 UTC
+Value: 0.000000
+Metric #28
+Descriptor:
+     -> Name: go_memstats_mcache_inuse_bytes
+     -> Description: Number of bytes in use by mcache structures.
+     -> Unit: 
+     -> DataType: Gauge
+NumberDataPoints #0
+StartTimestamp: 1970-01-01 00:00:00 +0000 UTC
+Timestamp: 2023-07-26 18:19:07.277 +0000 UTC
+Value: 9600.000000
+Metric #29
+Descriptor:
+     -> Name: go_memstats_mspan_sys_bytes
+     -> Description: Number of bytes used for mspan structures obtained from system.
+     -> Unit: 
+     -> DataType: Gauge
+NumberDataPoints #0
+StartTimestamp: 1970-01-01 00:00:00 +0000 UTC
+Timestamp: 2023-07-26 18:19:07.277 +0000 UTC
+Value: 130560.000000
+Metric #30
+Descriptor:
+     -> Name: process_virtual_memory_max_bytes
+     -> Description: Maximum amount of virtual memory available in bytes.
+     -> Unit: 
+     -> DataType: Gauge
+NumberDataPoints #0
+StartTimestamp: 1970-01-01 00:00:00 +0000 UTC
+Timestamp: 2023-07-26 18:19:07.277 +0000 UTC
+Value: 18446744073709551616.000000
+Metric #31
+Descriptor:
+     -> Name: go_goroutines
+     -> Description: Number of goroutines that currently exist.
+     -> Unit: 
+     -> DataType: Gauge
+NumberDataPoints #0
+StartTimestamp: 1970-01-01 00:00:00 +0000 UTC
+Timestamp: 2023-07-26 18:19:07.277 +0000 UTC
+Value: 8.000000
+Metric #32
+Descriptor:
+     -> Name: go_memstats_heap_released_bytes
+     -> Description: Number of heap bytes released to OS.
+     -> Unit: 
+     -> DataType: Gauge
+NumberDataPoints #0
+StartTimestamp: 1970-01-01 00:00:00 +0000 UTC
+Timestamp: 2023-07-26 18:19:07.277 +0000 UTC
+Value: 6594560.000000
+Metric #33
+Descriptor:
+     -> Name: go_memstats_heap_sys_bytes
+     -> Description: Number of heap bytes obtained from system.
+     -> Unit: 
+     -> DataType: Gauge
+NumberDataPoints #0
+StartTimestamp: 1970-01-01 00:00:00 +0000 UTC
+Timestamp: 2023-07-26 18:19:07.277 +0000 UTC
+Value: 11862016.000000
+Metric #34
+Descriptor:
+     -> Name: go_memstats_stack_inuse_bytes
+     -> Description: Number of bytes in use by the stack allocator.
+     -> Unit: 
+     -> DataType: Gauge
+NumberDataPoints #0
+StartTimestamp: 1970-01-01 00:00:00 +0000 UTC
+Timestamp: 2023-07-26 18:19:07.277 +0000 UTC
+Value: 720896.000000
+Metric #35
+Descriptor:
+     -> Name: go_memstats_sys_bytes
+     -> Description: Number of bytes obtained from system.
+     -> Unit: 
+     -> DataType: Gauge
+NumberDataPoints #0
+StartTimestamp: 1970-01-01 00:00:00 +0000 UTC
+Timestamp: 2023-07-26 18:19:07.277 +0000 UTC
+Value: 22543376.000000
+Metric #36
+Descriptor:
+     -> Name: process_runtime_go_goroutines
+     -> Description: Number of goroutines that currently exist
+     -> Unit: 
+     -> DataType: Gauge
+NumberDataPoints #0
+Data point attributes:
+     -> otel_scope_name: Str(go.opentelemetry.io/contrib/instrumentation/runtime)
+     -> otel_scope_version: Str(0.42.0)
+StartTimestamp: 1970-01-01 00:00:00 +0000 UTC
+Timestamp: 2023-07-26 18:19:07.277 +0000 UTC
+Value: 7.000000
+Metric #37
+Descriptor:
+     -> Name: go_memstats_alloc_bytes_total
+     -> Description: Total number of bytes allocated, even if freed.
+     -> Unit: 
+     -> DataType: Sum
+     -> IsMonotonic: true
+     -> AggregationTemporality: Cumulative
+NumberDataPoints #0
+StartTimestamp: 2023-07-26 18:18:07.274 +0000 UTC
+Timestamp: 2023-07-26 18:19:07.277 +0000 UTC
+Value: 17490248.000000
+Metric #38
+Descriptor:
+     -> Name: go_memstats_frees_total
+     -> Description: Total number of frees.
+     -> Unit: 
+     -> DataType: Sum
+     -> IsMonotonic: true
+     -> AggregationTemporality: Cumulative
+NumberDataPoints #0
+StartTimestamp: 2023-07-26 18:18:07.274 +0000 UTC
+Timestamp: 2023-07-26 18:19:07.277 +0000 UTC
+Value: 29008.000000
+Metric #39
+Descriptor:
+     -> Name: go_memstats_gc_sys_bytes
+     -> Description: Number of bytes used for garbage collection system metadata.
+     -> Unit: 
+     -> DataType: Gauge
+NumberDataPoints #0
+StartTimestamp: 1970-01-01 00:00:00 +0000 UTC
+Timestamp: 2023-07-26 18:19:07.277 +0000 UTC
+Value: 7818496.000000
+Metric #40
+Descriptor:
+     -> Name: go_memstats_heap_inuse_bytes
+     -> Description: Number of heap bytes that are in use.
+     -> Unit: 
+     -> DataType: Gauge
+NumberDataPoints #0
+StartTimestamp: 1970-01-01 00:00:00 +0000 UTC
+Timestamp: 2023-07-26 18:19:07.277 +0000 UTC
+Value: 4808704.000000
+Metric #41
+Descriptor:
+     -> Name: go_memstats_other_sys_bytes
+     -> Description: Number of bytes used for other system allocations.
+     -> Unit: 
+     -> DataType: Gauge
+NumberDataPoints #0
+StartTimestamp: 1970-01-01 00:00:00 +0000 UTC
+Timestamp: 2023-07-26 18:19:07.277 +0000 UTC
+Value: 1991366.000000
+Metric #42
+Descriptor:
+     -> Name: process_open_fds
+     -> Description: Number of open file descriptors.
+     -> Unit: 
+     -> DataType: Gauge
+NumberDataPoints #0
+StartTimestamp: 1970-01-01 00:00:00 +0000 UTC
+Timestamp: 2023-07-26 18:19:07.277 +0000 UTC
+Value: 8.000000
+Metric #43
+Descriptor:
+     -> Name: process_runtime_go_cgo_calls
+     -> Description: Number of cgo calls made by the current process
+     -> Unit: 
+     -> DataType: Gauge
+NumberDataPoints #0
+Data point attributes:
+     -> otel_scope_name: Str(go.opentelemetry.io/contrib/instrumentation/runtime)
+     -> otel_scope_version: Str(0.42.0)
+StartTimestamp: 1970-01-01 00:00:00 +0000 UTC
+Timestamp: 2023-07-26 18:19:07.277 +0000 UTC
+Value: 0.000000
+Metric #44
+Descriptor:
+     -> Name: process_start_time_seconds
+     -> Description: Start time of the process since unix epoch in seconds.
+     -> Unit: 
+     -> DataType: Gauge
+NumberDataPoints #0
+StartTimestamp: 1970-01-01 00:00:00 +0000 UTC
+Timestamp: 2023-07-26 18:19:07.277 +0000 UTC
+Value: 1690393891.580000
+Metric #45
+Descriptor:
+     -> Name: scrape_samples_post_metric_relabeling
+     -> Description: The number of samples remaining after metric relabeling was applied
+     -> Unit: 
+     -> DataType: Gauge
+NumberDataPoints #0
+StartTimestamp: 1970-01-01 00:00:00 +0000 UTC
+Timestamp: 2023-07-26 18:19:07.277 +0000 UTC
+Value: 51.000000
+	{"kind": "exporter", "data_type": "metrics", "name": "logging"}
