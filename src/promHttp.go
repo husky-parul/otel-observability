@@ -14,7 +14,6 @@ import (
 	"go.opentelemetry.io/otel/exporters/prometheus"
 	metric "go.opentelemetry.io/otel/metric"
 
-	"go.opentelemetry.io/otel/exporters/otlp/otlpmetric/otlpmetrichttp"
 	sdkmetric "go.opentelemetry.io/otel/sdk/metric"
 )
 
@@ -44,26 +43,8 @@ func configureMetrics() *prometheus.Exporter {
 	return exporter
 }
 
-func configureOtlpHttp() {
-	ctx := context.Background()
-	exp, err := otlpmetrichttp.New(ctx)
-	if err != nil {
-		panic(err)
-	}
-
-	meterProvider := sdkmetric.NewMeterProvider(sdkmetric.WithReader(sdkmetric.NewPeriodicReader(exp)))
-	defer func() {
-		if err := meterProvider.Shutdown(ctx); err != nil {
-			panic(err)
-		}
-	}()
-	otel.SetMeterProvider(meterProvider)
-
-	// From here, the meterProvider can be used by instrumentation to collect
-	// telemetry.
-}
-
-func main__() {
+func configureProm() {
+	fmt.Println("Configure PromExporter")
 	ctx := context.Background()
 	configureOpentelemetry()
 

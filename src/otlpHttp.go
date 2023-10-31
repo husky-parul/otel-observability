@@ -12,14 +12,10 @@ import (
 	sdk "go.opentelemetry.io/otel/sdk/metric"
 )
 
-func main() {
-	ctx := context.Background()
+func configureOtlpHttp() {
+	fmt.Println("Configure Otlp Http Exporter")
 
-	// resources := resource.NewWithAttributes(
-	// 	semconv.SchemaURL,
-	// 	semconv.ServiceNameKey.String("service"),
-	// 	semconv.ServiceVersionKey.String("v0.0.0"),
-	// )
+	ctx := context.Background()
 
 	// Instantiate the OTLP HTTP exporter
 	exporter, err := otlpmetrichttp.New(ctx)
@@ -28,10 +24,6 @@ func main() {
 	}
 
 	// Instantiate the OTLP HTTP exporter
-	// meterProvider_ := sdk.NewMeterProvider(
-	// 	sdk.WithResource(resources),
-	// 	sdk.WithReader(sdk.NewPeriodicReader(exporter)),
-	// )
 
 	meterProvider := sdk.NewMeterProvider(sdk.WithReader(sdk.NewPeriodicReader(exporter)))
 
