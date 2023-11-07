@@ -19,5 +19,4 @@
 
 # Go workspace file
 go.work
-src/go.mod
-src/go.sum
+go.sum
