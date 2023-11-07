@@ -2,7 +2,7 @@ apiVersion: apps/v1
 kind: Deployment
 metadata:
   name: otel-collector
-  namespace: otel
+  namespace: otelobs
 spec:
   selector:
     matchLabels:
@@ -14,7 +14,16 @@ spec:
         app: otel-collector
     spec:
       containers:
-        - name: otel-collector
+        # # - name: otelobs
+        # #   image: quay.io/husky_parul/otel_hello:latest
+        # #   imagePullPolicy: Always
+        # #   ports:
+        # #   - containerPort: 4317
+        # #     name: otel-hello-port
+        #   env:
+        #   - name: "EXPORTER_TYPE"
+        #     value: "otlp-grpc"
+        - name: otel
           image: otel/opentelemetry-collector
           args:
             - "--config=/etc/otel-collector-config.yaml"
@@ -31,17 +40,17 @@ apiVersion: v1
 kind: ConfigMap
 metadata:
   name: otel-collector-config
-  namespace: otel
+  namespace: otelobs
 data:
   otel-collector-config.yaml: |
     receivers:
-      prometheus:
-        config:
-          scrape_configs:
-            - job_name: "otelobs"
-              scrape_interval: 5s
-              static_configs:
-                - targets: ["otel-hello-service.otel.svc.cluster.local:8088"]
+      otlp:
+        protocols:
+          grpc:
+            endpoint: localhost:4317
+            tls:
+              insecure: true
+
     processors: {}
     exporters:
       logging:
@@ -49,19 +58,6 @@ data:
     service:
       pipelines:
         metrics:
-          receivers: [prometheus]
+          receivers: [otlp]
           exporters: [logging]
           processors: []
----
-apiVersion: v1
-kind: Service
-metadata:
-  name: otel-collector
-  namespace: otel
-spec:
-  selector:
-    app: otel-collector
-  ports:
-    - protocol: TCP
-      port: 55678
-      targetPort: 55678

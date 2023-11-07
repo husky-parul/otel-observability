@@ -51,11 +51,11 @@ spec:
         image: quay.io/husky_parul/otel_hello:latest
         imagePullPolicy: Always
         ports:
-        - containerPort: 8088
+        - containerPort: 4317
           name: otel-hello-port
         env:
         - name: "EXPORTER_TYPE"
-          value: "prom"
+          value: "otlp-grpc"
 ---
 apiVersion: v1
 kind: Service
@@ -66,5 +66,5 @@ spec:
     app: otel-hello
   ports:
     - protocol: TCP
-      port: 8088
+      port: 4317
       targetPort: otel-hello-port

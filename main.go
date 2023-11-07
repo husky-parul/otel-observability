@@ -30,6 +30,8 @@ const meterName = "github.com/open-telemetry/opentelemetry-go/example/prometheus
 // )
 
 func newOTLPExporter(t string) (*metric.MeterProvider, func(), error) {
+	log.Printf("Exporter Type selected: %v", t)
+
 	var exporter metric.Exporter
 	var err error
 
@@ -52,7 +54,7 @@ func newOTLPExporter(t string) (*metric.MeterProvider, func(), error) {
 
 	return metric.NewMeterProvider(
 		metric.WithReader(
-			metric.NewPeriodicReader(exporter),
+			metric.NewPeriodicReader(exporter, metric.WithInterval(3*time.Second)),
 		),
 	), shutdown, nil
 }
@@ -73,16 +75,6 @@ func main() {
 
 	rng := rand.New(rand.NewSource(time.Now().UnixNano()))
 	ctx := context.Background()
-
-	// provider, err := newPromExporter()
-	// provider, err := func() (*metric.MeterProvider, error) {
-	// 	exporter, err := otlpmetricgrpc.New(context.Background())
-	// 	if err != nil {
-	// 		return nil, err
-	// 	}
-	// 	return metric.NewMeterProvider(metric.WithReader(metric.NewPeriodicReader(exporter))), nil
-	// }()
-	// exporterType = otlpHTTPExporter
 
 	exporterType := os.Getenv("EXPORTER_TYPE")
 
