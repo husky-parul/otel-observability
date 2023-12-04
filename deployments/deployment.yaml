@@ -3,34 +3,6 @@ apiVersion: v1
 kind: Namespace
 metadata:
   name: otel
-# ---
-# apiVersion: v1
-# kind: Pod
-# metadata:
-#   name: go-app-pod
-#   namespace: otel
-#   labels:
-#     app.kubernetes.io/name: proxy
-# spec:
-#   containers:
-#   - name: go-app-container
-#     image: quay.io/husky_parul/otel_hello:latest
-#     ports:
-#     - containerPort: 8088
-#       name: otel_hello-svc-port
-# ---
-# apiVersion: v1
-# kind: Service
-# metadata:
-#   name:  otel_hello-service
-#   namespace: otel
-# spec:
-#   selector:
-#     app.kubernetes.io/name: proxy
-#   ports:
-#   - protocol: TCP
-#     port: 8088
-#     targetPort: otel_hello-svc-port    #my-svc.my-namespace.svc.cluster.local
 ---
 apiVersion: apps/v1
 kind: Deployment
@@ -51,11 +23,11 @@ spec:
         image: quay.io/husky_parul/otel_hello:latest
         imagePullPolicy: Always
         ports:
-        - containerPort: 4317
-          name: otel-hello-port
+        - containerPort: 2223
+          name: http
         env:
         - name: "EXPORTER_TYPE"
-          value: "otlp-grpc"
+          value: "prometheus"
 ---
 apiVersion: v1
 kind: Service
@@ -65,6 +37,7 @@ spec:
   selector:
     app: otel-hello
   ports:
-    - protocol: TCP
-      port: 4317
-      targetPort: otel-hello-port
+    - name: http
+      protocol: TCP
+      port: 2223
+      targetPort: http

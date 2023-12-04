@@ -63,15 +63,4 @@ data:
           exporters: [logging]
           processors: []
 ---
-apiVersion: v1
-kind: Service
-metadata:
-  name: otel-collector
-  namespace: kepler
-spec:
-  selector:
-    app: otel-collector
-  ports:
-    - protocol: TCP
-      port: 55678
-      targetPort: 55678
+

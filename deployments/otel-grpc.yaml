@@ -1,3 +1,8 @@
+apiVersion: v1
+kind: Namespace
+metadata:
+  name: otelobs
+---
 apiVersion: apps/v1
 kind: Deployment
 metadata:
@@ -14,15 +19,15 @@ spec:
         app: otel-collector
     spec:
       containers:
-        # # - name: otelobs
-        # #   image: quay.io/husky_parul/otel_hello:latest
-        # #   imagePullPolicy: Always
-        # #   ports:
-        # #   - containerPort: 4317
-        # #     name: otel-hello-port
-        #   env:
-        #   - name: "EXPORTER_TYPE"
-        #     value: "otlp-grpc"
+        - name: otelobs
+          image: quay.io/husky_parul/otel_hello:latest
+          imagePullPolicy: Always
+          # ports:
+          # - containerPort: 2223
+          #   name: otel-hello-port
+          env:
+          - name: "EXPORTER_TYPE"
+            value: "otlp-http"
         - name: otel
           image: otel/opentelemetry-collector
           args:
@@ -46,11 +51,10 @@ data:
     receivers:
       otlp:
         protocols:
+          http:
+            endpoint: 0.0.0.0:4318 
           grpc:
             endpoint: localhost:4317
-            tls:
-              insecure: true
-
     processors: {}
     exporters:
       logging:
@@ -61,3 +65,4 @@ data:
           receivers: [otlp]
           exporters: [logging]
           processors: []
+---

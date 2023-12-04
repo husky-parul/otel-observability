@@ -8,12 +8,14 @@ import (
 	"net/http"
 	"os"
 	"os/signal"
+	"strconv"
 	"time"
 
 	"github.com/prometheus/client_golang/prometheus/promhttp"
 
 	"go.opentelemetry.io/otel/attribute"
 	"go.opentelemetry.io/otel/exporters/otlp/otlpmetric/otlpmetricgrpc"
+	"go.opentelemetry.io/otel/exporters/otlp/otlpmetric/otlpmetrichttp"
 	"go.opentelemetry.io/otel/exporters/prometheus"
 	api "go.opentelemetry.io/otel/metric"
 	"go.opentelemetry.io/otel/sdk/metric"
@@ -37,10 +39,10 @@ func newOTLPExporter(t string) (*metric.MeterProvider, func(), error) {
 
 	switch t {
 	case "otlp-grpc":
-		exporter, err = otlpmetricgrpc.New(context.Background())
+		exporter, err = otlpmetricgrpc.New(context.Background(), otlpmetricgrpc.WithInsecure())
 
 	case "otlp-http":
-		exporter, err = otlpmetricgrpc.New(context.Background())
+		exporter, err = otlpmetrichttp.New(context.Background(), otlpmetrichttp.WithInsecure())
 	default:
 		panic("invalid exporter type")
 	}
@@ -99,32 +101,46 @@ func main() {
 	meter := provider.Meter(meterName)
 
 	opt := api.WithAttributes(
-		attribute.Key("A").String("B"),
-		attribute.Key("C").String("D"),
+		attribute.Key("A").String("label_A"),
+		attribute.Key("B").String("label_B"),
+		attribute.Key("C").String("label_C"),
+		attribute.Key("D").String("label_D"),
+		attribute.Key("E").String("label_E"),
+		attribute.Key("F").String("label_F"),
+		attribute.Key("G").String("label_G"),
+		attribute.Key("H").String("label_H"),
+		attribute.Key("I").String("label_I"),
+		attribute.Key("J").String("label_J"),
 	)
 
 	// This is the equivalent of prometheus.NewCounterVec
-	counter, err := meter.Float64Counter("foo", api.WithDescription("a simple counter"))
-	if err != nil {
-		log.Fatal(err)
-	}
-	counter.Add(ctx, 5, opt)
+	for i := 1; i < 20; i++ {
+		name := "foo" + strconv.Itoa(i)
+		counter, err := meter.Float64Counter(name, api.WithDescription("a simple counter"))
+		if err != nil {
+			log.Fatal(err)
+		}
+		counter.Add(ctx, 5, opt)
 
-	gauge, err := meter.Float64ObservableGauge("bar", api.WithDescription("a fun little gauge"))
-	if err != nil {
-		log.Fatal(err)
 	}
-	_, err = meter.RegisterCallback(func(_ context.Context, o api.Observer) error {
-		n := -10. + rng.Float64()*(90.) // [-10, 100)
-		o.ObserveFloat64(gauge, n, opt)
-		return nil
-	}, gauge)
-	if err != nil {
-		log.Fatal(err)
+	for i := 1; i < 20; i++ {
+		name := "bar" + strconv.Itoa(i)
+		gauge, err := meter.Float64ObservableGauge(name, api.WithDescription("a fun little gauge"))
+		if err != nil {
+			log.Fatal(err)
+		}
+		_, err = meter.RegisterCallback(func(_ context.Context, o api.Observer) error {
+			n := -10. + rng.Float64()*(90.) // [-10, 100)
+			o.ObserveFloat64(gauge, n, opt)
+			return nil
+		}, gauge)
+		if err != nil {
+			log.Fatal(err)
+		}
 	}
-
 	ctx, _ = signal.NotifyContext(ctx, os.Interrupt)
 	<-ctx.Done()
+
 }
 
 func serveHTTP() {

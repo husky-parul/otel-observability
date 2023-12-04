@@ -1,0 +1,17 @@
+apiVersion: monitoring.coreos.com/v1
+kind: ServiceMonitor
+metadata:
+  name: otelobs
+  namespace: monitoring
+  labels:
+    app: otel-hello
+spec:
+  namespaceSelector:
+    matchNames:
+    - otel
+  selector:
+    matchLabels:
+      app: otel-hello
+  endpoints:
+  - port: http
+    interval : 10s
