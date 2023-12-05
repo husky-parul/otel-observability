@@ -37,12 +37,17 @@ func newOTLPExporter(t string) (*metric.MeterProvider, func(), error) {
 	var exporter metric.Exporter
 	var err error
 
+	otelAgentAddr, ok := os.LookupEnv("OTEL_EXPORTER_OTLP_ENDPOINT")
+	if !ok {
+		otelAgentAddr = "0.0.0.0:4318"
+	}
 	switch t {
 	case "otlp-grpc":
-		exporter, err = otlpmetricgrpc.New(context.Background(), otlpmetricgrpc.WithInsecure())
+		exporter, err = otlpmetricgrpc.New(context.Background(), otlpmetricgrpc.WithInsecure(), otlpmetricgrpc.WithEndpoint(otelAgentAddr))
 
 	case "otlp-http":
-		exporter, err = otlpmetrichttp.New(context.Background(), otlpmetrichttp.WithInsecure())
+		log.Printf("otelAgentAddr: %v", otelAgentAddr)
+		exporter, err = otlpmetrichttp.New(context.Background(), otlpmetrichttp.WithInsecure(), otlpmetrichttp.WithEndpoint(otelAgentAddr))
 	default:
 		panic("invalid exporter type")
 	}
