@@ -9,6 +9,16 @@ processors: {}
 exporters:
   logging:
     verbosity: detailed
+  prometheusremotewrite:
+        endpoint: "http://localhost:9090/api/v1/write"
+        tls:
+          insecure: true
+        # wal: # Enabling the Write-Ahead-Log for the exporter.
+        #   directory: ./prom_rw # The directory to store the WAL in
+        #   buffer_size: 100 # Optional count of elements to be read from the WAL before truncating; default of 300
+        #   truncate_frequency: 45s # Optional frequency for how often the WAL should be truncated. It is a time.ParseDuration; default of 1m
+        # resource_to_telemetry_conversion:
+        #   enabled: true # Convert resource attributes to metric labels
 service:
   pipelines:
     metrics:

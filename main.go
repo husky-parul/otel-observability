@@ -38,6 +38,7 @@ func newOTLPExporter(t string) (*metric.MeterProvider, func(), error) {
 	var err error
 
 	otelAgentAddr, ok := os.LookupEnv("OTEL_EXPORTER_OTLP_ENDPOINT")
+
 	if !ok {
 		otelAgentAddr = "0.0.0.0:4318"
 	}
@@ -119,7 +120,12 @@ func main() {
 	)
 
 	// This is the equivalent of prometheus.NewCounterVec
-	for i := 1; i < 20; i++ {
+	metrics, _ := os.LookupEnv("METRICS_COUNT")
+	metricsCount, _ := strconv.Atoi(metrics)
+
+	log.Printf("metricsCount: %v", metricsCount)
+
+	for i := 0; i < metricsCount; i++ {
 		name := "foo" + strconv.Itoa(i)
 		counter, err := meter.Float64Counter(name, api.WithDescription("a simple counter"))
 		if err != nil {
@@ -128,7 +134,7 @@ func main() {
 		counter.Add(ctx, 5, opt)
 
 	}
-	for i := 1; i < 20; i++ {
+	for i := 0; i < metricsCount; i++ {
 		name := "bar" + strconv.Itoa(i)
 		gauge, err := meter.Float64ObservableGauge(name, api.WithDescription("a fun little gauge"))
 		if err != nil {

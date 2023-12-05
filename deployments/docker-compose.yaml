@@ -20,14 +20,17 @@ services:
   prometheus:
     container_name: prometheus
     image: prom/prometheus:latest
+    command:
+      # -  --web.enable-remote-write-receiver
+      - --config.file=/etc/prometheus/prometheus.yml
     network_mode: "host"
     ports:
-      - "9090:9090"
+      - "0.0.0.0:9090:9090"
     volumes: 
       - "./prometheus.yml:/etc/prometheus/prometheus.yml"
     privileged: true
-    depends_on:
-      - cadvisor
+    # depends_on:
+    #   - cadvisor
 
   grafana:
     container_name: grafana
@@ -49,29 +52,30 @@ services:
 
   otel-collector:
     image: otel/opentelemetry-collector
+    privileged: true
     restart: always
     command: ["--config=/etc/otel-collector-config.yaml"]
     volumes:
       - ./otel-collector-config.yaml:/etc/otel-collector-config.yaml
+      - ./prom_rw:/prom_rw
     ports:
       - "1888:1888"   # pprof extension
       - "8888:8888"   # Prometheus metrics exposed by the collector
       - "8889:8889"   # Prometheus exporter metrics
       - "13133:13133" # health_check extension
-      - "4317:4317"   # OTLP gRPC receiver
+      - "0.0.0.0:4317:4317"   # OTLP gRPC receiver
       - "55679:55679" # zpages extension
       - "0.0.0.0:4318:4318"   #OTLP HTTP reciever
 
-  # otel-obs-hw:
-  #   image: quay.io/husky_parul/otel_hello:latest
-  #   # build:
-  #   #   dockerfile: Dockerfile
-  #   #   context: /home/parsingh/go/src/github.com/otel-observability
-  #   environment:
-  #     - EXPORTER_TYPE=otlp-http
-  #     - OTEL_EXPORTER_OTLP_ENDPOINT=localhost:4318
-  #   depends_on:
-  #     - otel-collector
-
+   otel-obs-hw:
+      image: quay.io/husky_parul/otel_hello:latest
+      # build:
+      #   dockerfile: Dockerfile
+      #   context: /home/parsingh/go/src/github.com/otel-observability
+      environment:
+        - EXPORTER_TYPE=otlp-http
+        - OTEL_EXPORTER_OTLP_ENDPOINT=localhost:4318
+      depends_on:
+        - otel-collector
 volumes:
   grafana-data:
